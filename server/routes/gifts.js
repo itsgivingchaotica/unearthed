@@ -1,13 +1,21 @@
 import express from "express";
 import path from "path";
+
 import { fileURLToPath } from "url";
+
 import giftData from "../data/gifts.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 const router = express.Router();
 
+if (giftData) {
+  console.log(giftData);
+}
+
 router.get("/", (req, res) => {
+  console.log(giftData);
   res.status(200).json(giftData);
 });
 
